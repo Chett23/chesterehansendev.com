@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './App';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+function Index() {
+  return(
+    <Router>
+      <Switch>
+        <Route path='/' component={App} />
+      </Switch>
+    </Router>
+  )
+}
+
+ReactDOM.render(<Index />, document.getElementById('root'));
+
 serviceWorker.unregister();
