@@ -26,12 +26,11 @@ function Summary() {
       <ColMid>
         <Selfie src={headShot} />
         <Title>Chester Hansen full stack web development</Title>
-        <Text>About About About About About About About About About About About About About About About About About About About About About About</Text>
-        <Text>About About About About About About About About About About About About About About About About About About About About About About</Text>
-        <Text>About About About About About About About About About About About About About About About About About About About About About About</Text>
-        <Text>About About About About About About About About About About About About About About About About About About About About About About</Text>
-        <Text>About About About About About About About About About About About About About About About About About About About About About About</Text>
-        <Text>About About About About About About About About About About About About About About About About About About About About About About</Text>
+        <Text>Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me </Text>
+        <Text>Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me </Text>
+        <Text>Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me </Text>
+        <Text>Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me </Text>
+        <Text>Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me Hire Me </Text>
       </ColMid>
     </React.Fragment>
   );

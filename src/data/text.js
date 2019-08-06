@@ -1,0 +1,1 @@
+export const SummaryShort = As a Web Developer I have put my determination and quick learning to the test as I have learned new ways to problem solve. Paired with a keen attention to detail and quality I am prepared to seek out ambitious and innovative solutions to the task at hand."
