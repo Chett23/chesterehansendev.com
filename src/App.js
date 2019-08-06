@@ -36,15 +36,15 @@ const LogoRow = styled(Row)`
 function App() {
   const [viewSideBar, setViewSideBar] = useState(false)
   return (
-    <MainCont>
-      <SideBar onMouseEnter={() => setViewSideBar(!viewSideBar)} onMouseLeave={() => setViewSideBar(!viewSideBar)}>
+    <MainCont onTouchStart={()=> setViewSideBar(false)}>
+      <SideBar  onMouseEnter={() => setViewSideBar(!viewSideBar)} onMouseLeave={() => setViewSideBar(!viewSideBar)} >
         {
           viewSideBar ?
             <React.Fragment>
               <NavCol>
                 <Link to='/' component={Main}><CHDLogo /></Link>
-                <SBLink to='/summary' component={Summary} >About</SBLink>
-                <SBLink to='/projects' component={Projects} >Projects</SBLink>
+                <SBLink to='/summary' component={Summary}>About</SBLink>
+                <SBLink to='/projects' component={Projects}>Projects</SBLink>
               </NavCol>
               <LogoRow>
                 <GithubSB />
@@ -52,7 +52,7 @@ function App() {
               </LogoRow>
             </React.Fragment>
             :
-            <Hamburger onClick={()=> setViewSideBar(!viewSideBar)}  onBlur={() => setViewSideBar(!viewSideBar)} />
+            <Hamburger onTouchStart={()=> setViewSideBar(!viewSideBar)} onBlur={()=> setViewSideBar(!viewSideBar)}/>
         }
       </SideBar>
       <Switch>

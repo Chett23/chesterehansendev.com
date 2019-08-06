@@ -11,6 +11,9 @@ const ColMid= styled(Col)`
   text-align: center;
   justify-content: center; 
   height: 60%;
+  @media(max-width: 720px){
+    padding-top: 20px;
+  }
 `;
 const Selfie = styled.img`
   align-self: center;

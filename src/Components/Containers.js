@@ -20,8 +20,9 @@ export const MainCont = styled(Row)`
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  @media (max-width: 568px) {
+  @media (max-width: 720px) {
     flex-direction: column;
+    padding-top: 35px;
   }
 `;
 
@@ -34,23 +35,20 @@ top: 0;
 left: 0;
 transition-duration: .1s;
 justify-content: space-between;
-wrap: wrap;
 align-items: center;
 width: 40px;
-height: 100%;
+height: 100vh;
 border-right: 1px solid #393E41;
 &:hover {
   width: 100px;
-}
-&:active{
-  width:100px;
 }
 @media (max-width: 720px) {
   width: 100%;
   height: 40px;
   flex-direction: row;
   place-self: flex-start;
-  padding: 10px;
+  border-bottom: 1px solid #393E41;
+  padding: 10px 0;
   &:hover {
     height: 70px;
     width: 100%;

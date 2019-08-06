@@ -4,9 +4,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
 import { Row, Card } from './Containers.js';
-import { Title, Text } from './Text.js';
-import shopv1 from '../imgs/shop_v1.jpg';
-import shopv2 from '../imgs/shop_v2.jpg';
+import { Title, Text } from './Text.js';  
 
 
 const Iframe = styled.img`
