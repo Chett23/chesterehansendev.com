@@ -1,0 +1,20 @@
+type Project {
+  id: ID! @id
+  title: String!
+  description: String!
+  url: String!
+  imgUrl: String!
+  order: Int!
+}
+
+type Image {
+  id: ID! @id
+  title: String! @unique
+  url: String!
+}
+
+type Text {
+  id: ID! @id
+  text: String!
+  title: String! @unique
+}

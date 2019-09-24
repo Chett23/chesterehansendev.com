@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import { useQuery } from '@apollo/react-hooks'
+
 
 import { Row, Card } from './Containers.js';
-import { Title, Text } from './Text.js';  
+import { Title, Text } from './Text.js';
 
 
 const Iframe = styled.img`
@@ -35,36 +36,42 @@ const ProjectText = styled(Text)`
   margin: 0 10pt;
 `;
 
+
+//Querys
+const GET_PROJECTS = gql`
+  query{
+    projects{
+      title,
+      description,
+      url,
+      imgUrl,
+      order,
+      id
+    }
+  }
+`
+
 function Projects() {
+  const { loading: projectsLoading, error: projectsError, data } = useQuery(GET_PROJECTS)
+
+  if (projectsError) { console.log(projectsError) }
+
   return (
     <ProjectsCont>
-      <Query query={gql`
       {
-        projects{
-          title,
-          description,
-          url,
-          imgUrl,
-          order,
-          id
-        }
+        projectsLoading ?
+        <Title>Loading . . . </Title>
+        :
+        data && data.projects.sort((a, b) => a.order - b.order).map(project => {
+          return <Card href={project.url} target={'_blank'} key={project.id}>
+            <Iframe src={project.imgUrl} />
+            <InfoCont>
+              <Title>{project.title}</Title>
+              <ProjectText>{project.description}</ProjectText>
+            </InfoCont>
+          </Card>
+        })
       }
-      `}>
-        {({ loading, error, data }) => {
-          if (loading) return <Title>Loading . . . </Title>
-          if (error) {console.log(error)}
-
-          return data.projects.sort((a, b) => a.order - b.order).map(project => {
-            return <Card href={project.url} target={'_blank'} key={project.id}>
-              <Iframe src={project.imgUrl} />
-              <InfoCont>
-                <Title>{project.title}</Title>
-                <ProjectText>{project.description}</ProjectText>
-              </InfoCont>
-            </Card>
-          })
-        }}
-      </Query>
     </ProjectsCont>
   );
 }

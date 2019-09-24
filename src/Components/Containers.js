@@ -71,4 +71,7 @@ export const Card = styled.a`
     width: 60%;
     margin: 10px 0px;
   }
+  &:hover {
+    transform: scale(1.025,1.025);
+  }
 `;

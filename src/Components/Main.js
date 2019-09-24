@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks'
 
 import { Col, Row } from './Containers.js';
 import { Title, Text } from './Text.js';
 import { Linkedin, Github } from './Logos';
-import headShot from '../imgs/chester.jpg';
 
 
 const ColMid = styled(Col)`
@@ -27,24 +28,48 @@ const Selfie = styled.img`
 const SMLogoRow = styled(Row)`
  justify-content: center;
  margin: 10px;
-`; 
+`;
 const MainText = styled(Text)`
-  width: 80%;
+  max-width: 780px;
   align-self: center;
 `;
 
+const GET_HEAD_SHOT = gql`
+  query {
+    image(where: {title: "headShot"}){
+      title
+      id
+      url
+    }
+  }
+`
+const GET_MAIN_SUMMERY = gql`
+  query{
+    text(where: {title: "Main Summery"}){
+      text
+    }
+  }
+`
+
 function Summary() {
+  const { loading: headShotLoading, error: headShotError, data: headShotData } = useQuery(GET_HEAD_SHOT)
+  const { loading: mainSummeryLoading, error: mainSummeryError, data: mainSummeryData } = useQuery(GET_MAIN_SUMMERY)
+
+  if (headShotLoading) {return <Title>Loading . . . </Title>}
+  if (headShotError) { console.log(headShotError) }
+  if (mainSummeryLoading) {return <Title>Loading . . . </Title>}
+  if (mainSummeryError) { console.log(mainSummeryError) }
+
   return (
-      <ColMid>
-        <Selfie src={headShot} />
-        <Title>Chester Hansen full stack web development</Title>
-        <MainText>As a Web Developer I have put my determination and quick learning to the test as I have learned new ways to problem solve. </MainText>
-        <MainText>Paired with a keen attention to detail and quality I am prepared to seek out ambitious and innovative solutions to the task at hand.</MainText>
-        <SMLogoRow>
-          <Github />
-          <Linkedin />
-        </SMLogoRow>
-      </ColMid>
+    <ColMid>
+      <Selfie src={`${headShotData.image.url}`} />
+      <Title>Chester Hansen full stack web development</Title>
+      <MainText>{mainSummeryData.text.text}</MainText>
+      <SMLogoRow>
+        <Github />
+        <Linkedin />
+      </SMLogoRow>
+    </ColMid>
   );
 }
 
