@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/react-hooks'
 
 import { Col, Row } from './Containers.js';
 import { Title, Text } from './Text.js';
-import { Linkedin, Github } from './Logos';
+import { Linkedin, Github, Email } from './Logos';
 
 
 const ColMid = styled(Col)`
@@ -68,6 +68,7 @@ function Summary() {
       <SMLogoRow>
         <Github />
         <Linkedin />
+        <Email />
       </SMLogoRow>
     </ColMid>
   );
