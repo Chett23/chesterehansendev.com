@@ -7,7 +7,7 @@ import { Row, Card } from "./Containers.js";
 import { Title, Text } from "./Text.js";
 
 const Iframe = styled.img`
-	width: 100%;
+	width: ${({ title }) => (title === "Dice Bag App" ? "auto" : "100%")};
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	height: 200px;
@@ -69,7 +69,7 @@ function Projects() {
 					.map((project) => {
 						return (
 							<Card href={project.url} target={"_blank"} key={project.id}>
-								<Iframe src={project.imgUrl} />
+								<Iframe title={project.title} src={project.imgUrl} />
 								<InfoCont>
 									<Title>{project.title}</Title>
 									<ProjectText>{project.description}</ProjectText>

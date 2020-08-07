@@ -62,6 +62,7 @@ export const SideBar = styled.div`
 export const Card = styled.a`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	width: 45%;
 	min-width: 300px;
 	margin: 10px;
